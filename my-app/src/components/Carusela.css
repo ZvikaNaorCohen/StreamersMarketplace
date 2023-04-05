@@ -1,0 +1,23 @@
+.carusela {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+  }
+
+  .carusela__slider {
+    margin-top: 10px; /* or any negative value you prefer */
+  }
+  
+  .carusela__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    padding: 16px;
+    background-color: #f5f5f5;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
