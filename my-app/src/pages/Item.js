@@ -2,11 +2,11 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 
-function CreatorProfile() {
+function Item() {
   return (
     <>
     </>
   );
 }
 
-export default CreatorProfile;
+export default Item;
