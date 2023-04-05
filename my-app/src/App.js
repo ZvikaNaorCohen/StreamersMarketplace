@@ -4,23 +4,20 @@
 import React from 'react';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-// import { Routes, Route, useLocation} from 'react-router-dom';
-// import Navigation from './pages/Navbar';
-// import Explore from './pages/Explore';
-// import ContactUs from './pages/ContactUs';
-// import Search from './pages/Search';
-
-/*
-  <Route>
-    <Navigation />
-        <Route exact path="/" element={<Header />} />
-    </Route>
-*/
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import CreatorProfile from './pages/CreatorProfile';
+import Item from './pages/Item';
 
 function App() {
   return (
     <>
       <Navbar/>
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/creator" element={<CreatorProfile />} />
+          <Route path="/item" element={<Item />} />
+       </Routes>
       <Footer/>
     </>
   );
