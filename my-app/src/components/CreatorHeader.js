@@ -1,11 +1,15 @@
 import React from 'react';
 import './CreatorHeader.css';
 import CreatorBackground from './CreatorBackground.js'
+import CreatorBio from './CreatorBio.js'
+import CreatorItems from './CreatorItems.js'
 
-function CreatorHeader() {
+function CreatorHeader(id) {
   return (
     <>
-      <CreatorBackground/>
+      <CreatorBackground id={id}/>
+      <CreatorBio id={id}/>
+      <CreatorItems id={id}/>
     </>
   );
 }

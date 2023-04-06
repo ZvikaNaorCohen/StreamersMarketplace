@@ -1,10 +1,10 @@
 .backgroundPic {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
+    opacity: 0.9;
 }
 
