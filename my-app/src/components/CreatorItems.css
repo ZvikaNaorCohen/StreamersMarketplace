@@ -1,0 +1,13 @@
+.items-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+}
+  
+h2 {
+    font-size: 1.5rem;
+    margin: 20px 0px 0px 32px;
+}

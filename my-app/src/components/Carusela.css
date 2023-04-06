@@ -1,0 +1,42 @@
+.carusela {
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+  }
+
+  .carusela__slider {
+    margin-top: 10px; /* or any negative value you prefer */
+  }
+  
+  .carusela__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    padding: 16px;
+    background-color: #f5f5f5;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .carusela__arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(167, 6, 167);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .carusela__arrow--next {
+    margin-top: -48px;
+    right: 10px;
+  }
+  
+  .carusela__arrow--prev {
+    margin-top: -48px;
+    left: 10px;
+  }
