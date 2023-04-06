@@ -5,6 +5,9 @@
     padding: 20px;
     box-sizing: border-box;
     background-color: #7149C6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
   .creator-bio-header {
@@ -52,3 +55,6 @@
     margin-bottom: 10px;
   }
   
+  .creator-video {
+    margin-right: 18rem;
+  }
