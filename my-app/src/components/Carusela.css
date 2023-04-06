@@ -21,3 +21,22 @@
     border-top-right-radius: 8px;
   }
   
+  .carusela__arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(167, 6, 167);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .carusela__arrow--next {
+    margin-top: -48px;
+    right: 10px;
+  }
+  
+  .carusela__arrow--prev {
+    margin-top: -48px;
+    left: 10px;
+  }
