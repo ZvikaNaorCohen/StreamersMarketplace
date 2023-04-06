@@ -1,5 +1,5 @@
 import React from "react";
-import CardItem from "./CardItem";
+import CardItem from "./NFTCardItem";
 import "./Cards.css";
 import pic from "./NFTpageImages/doge.jpg";
 let NFTname = "Doge";
