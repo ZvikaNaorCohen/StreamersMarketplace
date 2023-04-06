@@ -1,6 +1,6 @@
 import React from 'react';
 import './CreatorBackground.css';
-import backgroundPic from '../images/arsenal.jpg'
+import backgroundPic from '../images/office.jpg'
 
 function CreatorBackground(id) {
   return (

@@ -1,16 +1,29 @@
 import React from 'react';
 import './CreatorItems.css';
+import CreatorItemCard from './CreatorItemCard';
 
 function CreatorItems(id) {
   return (
-    <div className="items-grid-container">
-      <div className="item">item 1</div>
-      <div className="item">item 2</div>
-      <div className="item">item 3</div>
-      <div className="item">item 4</div>
-      <div className="item">item 5</div>
-      <div className="item">item 6</div>
-    </div>
+    <>
+        <h2>Items on sale</h2>
+        <div className="items-grid-container">
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        <CreatorItemCard id={id}/>
+        </div>
+    </>
   );
 }
 

@@ -4,7 +4,7 @@ import CreatorHeader from '../components/CreatorHeader';
 
 
 function CreatorProfile() {
-    var slug = useParams();
+  var slug = useParams();
   return (
     <>
         <CreatorHeader id={slug}/>
