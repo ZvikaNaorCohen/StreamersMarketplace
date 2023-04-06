@@ -1,10 +1,10 @@
 // App.js
 
 // import Header from './components/Header'
-import React from 'react';
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-// import { Routes, Route, useLocation} from 'react-router-dom';
+import React from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { Routes, Route, useLocation, Link } from "react-router-dom";
 // import Navigation from './pages/Navbar';
 // import Explore from './pages/Explore';
 // import ContactUs from './pages/ContactUs';
@@ -20,8 +20,11 @@ import Footer from './components/Footer'
 function App() {
   return (
     <>
-      <Navbar/>
-      <Footer/>
+      <Navbar />
+      <li>
+        <Link to="/NFTpage">NFT example Page</Link>
+      </li>
+      <Footer />
     </>
   );
 }
