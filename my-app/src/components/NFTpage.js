@@ -1,9 +1,9 @@
 import React from "react";
-import "../../../App.css";
+import "../App.css";
 import styled from "styled-components";
-import Footer from "../../Footer";
-import NFTpageHero from "./NFTHeader";
-import NFTpageDetails from "./NFTDetails";
+import Footer from "./Footer";
+import NFTHeader from "./NFTHeader";
+import NFTDetails from "./NFTDetails";
 
 const Container = styled.div`
   height: 100vh;
@@ -13,12 +13,12 @@ const Container = styled.div`
   overflow-y: auto;
 `;
 
-function NFTpage() {
+function NFTpage(id) {
   return (
     <Container>
-      <NFTpageHero/>
-      <NFTpageDetails/>
-      <Footer/>
+      <NFTHeader id={id}/>
+      <NFTDetails id={id}/>
+      <Footer />
     </Container>
   );
 }
