@@ -2,8 +2,8 @@ import React from "react";
 import "../../../App.css";
 import styled from "styled-components";
 import Footer from "../../Footer";
-import NFTpageHero from "./NFTpageHero";
-import NFTpageDetails from "./NFTpageDetails";
+import NFTpageHero from "./NFTHeader";
+import NFTpageDetails from "./NFTDetails";
 
 const Container = styled.div`
   height: 100vh;
