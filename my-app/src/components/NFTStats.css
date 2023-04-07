@@ -1,0 +1,13 @@
+.stats {
+  border: 2px solid #7149c6;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  padding: 1rem;
+  margin: 4rem;
+  border-radius: 1rem;
+  background-color: #e3ddf0;
+}
