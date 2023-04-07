@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "../../Navbar";
-import Cards from "./Cards";
-import Stats from "./NFTstats";
+import Navbar from "./Navbar";
+import Cards from "./NFTCards";
+import Stats from "./NFTStats";
 
 const Section = styled.div`
   height: 100vh;
@@ -74,7 +74,6 @@ const Button = styled.button`
 const NFTpageHero = () => {
   return (
     <Section>
-      <Navbar />
       <Container>
         <Left>
           <Cards />

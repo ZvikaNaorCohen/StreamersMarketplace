@@ -1,5 +1,5 @@
 import React from "react";
-import './NFTstats.css'
+import './NFTStats.css'
 // let itemsAmount = 100;
 // let itemsOwned = 50;
 // let markedAsFavorite = 1;

@@ -1,7 +1,7 @@
 import React from "react";
 import CardItem from "./NFTCardItem";
-import "./Cards.css";
-import pic from "./NFTpageImages/doge.jpg";
+import "./NFTCards.css";
+import pic from "../images/NFTpageImages/doge.jpg";
 let NFTname = "Doge";
 
 function Cards() {
