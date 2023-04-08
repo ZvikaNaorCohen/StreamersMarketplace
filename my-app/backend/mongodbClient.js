@@ -14,6 +14,50 @@ export async function init_mongo_connection()
   }
 }
 
+const tables = {
+  user : {
+    email: userEmail,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    displayName: userDisplayName,
+    phoneNumber: req.body.phoneNumber,
+    walletNumber: req.body.walletNumber,
+    profilePic: req.body.profilePic,
+    description: req.body.description
+  },
+  purchase : {
+    creatorId: creator.body.googleId,
+    creatorName: creator.body.displayName,
+    buyerId: buyerId,
+    buyerEmail: buyerEmail,
+    buyerName: buyer.body.displayName,
+    itemName: item.body.title,
+    itemId: itemId,
+    price: price,
+    quantity: quantity,
+    totalPrice: totalPrice
+  },
+  item: {
+    id: item._id,
+    title: item.body.title,
+    description: item.body.description,
+    image: item.body.image,
+    price: item.body.price,
+    creator: creator.body
+  },
+  creator: {
+    email: userEmail,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    displayName: userDisplayName,
+    phoneNumber: req.body.phoneNumber,
+    walletNumber: req.body.walletNumber,
+    profilePic: req.body.profilePic,
+    description: req.body.description,
+    introVideo: req.body.introVideo
+  }
+}
+
 // export async function load_all_objects_async(collection_name) {
 //   try {
 //       const db = client.db();
