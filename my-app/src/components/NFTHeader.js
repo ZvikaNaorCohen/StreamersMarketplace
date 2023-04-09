@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Cards from "./NFTCards";
 import Details from "./NFTDetails";
-
-
+import Pricing from "./NFTPrice";
 
 // const Section = styled.div`
 //   height: 100vh;
@@ -35,7 +34,6 @@ const Left = styled.div`
     }
   }
 `;
-
 
 const Right = styled.div`
   display: flex;
@@ -88,6 +86,7 @@ const NFTHeader = () => {
       </Left>
       <Right>
         <Details />
+        <Pricing />
       </Right>
     </Container>
   );

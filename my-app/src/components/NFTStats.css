@@ -11,7 +11,6 @@
   border-radius: 1rem;
   background-color: #e3ddf0;
   font-size: 16px;
-  
 }
 
 .stats__amount{
@@ -19,6 +18,9 @@
 }
 .stats__owned{
     margin-left: 2rem;
+}
+.stats__viewed{
+      margin-left: 2rem;
 }
 .stats__favs{
     margin-left: 2rem;

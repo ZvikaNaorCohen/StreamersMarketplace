@@ -7,7 +7,7 @@
   margin: 0 auto;
   border: 2px solid #7149c6;
   border-radius: 1rem;
-   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
 }
@@ -40,11 +40,20 @@
 }
 
 .creator-name{
-    margin: 15px;
-    margin-bottom: 5px;
+  margin: 15px;
+  margin-bottom: 5px;
+  text-decoration: none;
 }
 
-.nft-description{
+.creator-link{
+  color: black;
+  text-decoration: none;
+}
+.creator-link:hover{
+  color: #7149c6;
+}
+
+.nft-description {
   margin: 15px;
   font-size: 20px;
 }
