@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./NFTPrice.css";
 
-function Pricing() {
-  const [currPrice, setCurrPrice] = useState(0.35);
-  const [currency, setCurrency] = useState("ETH");
+const Pricing = ({ Price }) => {
+  const [currPrice, setCurrPrice] = useState(parseFloat(Price));
+  const [currency] = useState("ETH");
   const [amount, setAmount] = useState(1);
 
   useEffect(() => {
     // This function will be called every time the amount changes
     // Update the current price based on the new amount
-    setCurrPrice(amount * 0.35);
-  }, [amount]);
+    setCurrPrice(amount * parseFloat(Price));
+  }, [amount, Price]);
 
   const incrementAmount = () => {
     setAmount(amount + 1);
@@ -41,6 +41,6 @@ function Pricing() {
       <button className="buy-button"> Buy {amount} now</button>
     </div>
   );
-}
+};
 
 export default Pricing;
