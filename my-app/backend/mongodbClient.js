@@ -1,14 +1,14 @@
-const { MongoClient } = require('mongodb');
+const mongo = require("mongodb");
 const username = encodeURIComponent("eliranzeitouni");
 const password = encodeURIComponent("7whHTXefWlWGkXeF");
 const uri = `mongodb+srv://${username}:${password}@afcluster.atpou3v.mongodb.net/?retryWrites=true&w=majority`;
 let client;
 
-export async function initMongoConnection()
+async function initMongoConnection()
 {
   try {
     console.log("connecting to DB");
-    client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    client = await mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("Connection succeeded");
   } catch (error) {
     console.log("Failed in initMongoConnection ");
@@ -16,9 +16,9 @@ export async function initMongoConnection()
   }
 }
 
-export async function listObjectsAsync(collectionName) {
+async function loadAllObjectsAsync(collectionName) {
   try {
-      const db = client.db();
+      const db = client.db("StreamersMarketplace");
       const collection = await db.collection(collectionName);
       const items = await collection.find().toArray();
       console.log("finished loading all files ", items.length);
@@ -30,11 +30,11 @@ export async function listObjectsAsync(collectionName) {
   }
 }
 
-export async function findObjectByIdAsync(collectionName, id) {
+async function findObjectByIdAsync(collectionName, id) {
   try {
-      const db = client.db();
+      const db = client.db("StreamersMarketplace");
       const collection = db.collection(collectionName);
-      let objectId = new mongo.ObjectID(id);
+      let objectId = new mongo.ObjectId(id);
       return await collection.findOne({ "_id": objectId });
   } catch (error) {
       console.log("failed in findObjectByIdAsync ");
@@ -43,12 +43,26 @@ export async function findObjectByIdAsync(collectionName, id) {
   }
 }
 
-export async function addOrUpdateObjectAsync(collectionName, id, body) {
+async function findObjectByGoogleIdAsync(collectionName, id) {
   try {
-      const db = client.db();
+      const db = client.db("StreamersMarketplace");
+      const collection = db.collection(collectionName);
+      result = await collection.findOne({ "body.googleId": id }); 
+      return result
+  } catch (error) {
+      console.log("failed in findObjectByGoogleIdAsync ");
+      console.log(error);
+      throw error;
+  }
+}
+
+
+async function addOrUpdateObjectAsync(collectionName, id, body) {
+  try {
+      const db = client.db("StreamersMarketplace");
       const collection = db.collection(collectionName);
       const now = new Date();
-      let objectId = new mongo.ObjectID(id);
+      let objectId = new mongo.ObjectId(id);
       console.log("object found, updating mongo - ", id);
       await collection.updateOne({ "_id": objectId }, { $set: { "body": body, "date": now } }, { "upsert": true });
   } catch (error) {
@@ -58,12 +72,12 @@ export async function addOrUpdateObjectAsync(collectionName, id, body) {
   }
 }
 
-export async function updateObjectAsync(collectionName, id, nextConfiguration) {
+async function updateObjectAsync(collectionName, id, nextConfiguration) {
   try {
       const now = new Date();
       nextConfiguration.date = now;
-      const collection = client.db().collection(collectionName);
-      let objectId = new mongo.ObjectID(id);
+      const collection = client.db("StreamersMarketplace").collection(collectionName);
+      let objectId = new mongo.ObjectId(id);
       return await collection.updateOne({ "_id": objectId }, { $set: nextConfiguration });
   } catch (error) {
       console.log("failed in updateObjectAsync ");
@@ -72,9 +86,22 @@ export async function updateObjectAsync(collectionName, id, nextConfiguration) {
   }
 }
 
-export async function addObjectAsync(collectionName, body) {
+async function updateUserByGoogleIdAsync(collectionName, id, body) {
   try {
-      const db = client.db();
+      const db = client.db("StreamersMarketplace");
+      const collection = db.collection(collectionName);
+      const now = new Date();
+      console.log("object found, updating mongo - ", id);
+      await collection.updateOne({ "body.googleId": id }, { $set: { "body": body, "date": now } }, { "upsert": true });
+  } catch (error) {
+      console.log(error);
+      throw error;
+  }
+}
+
+async function addObjectAsync(collectionName, body) {
+  try {
+      const db = client.db("StreamersMarketplace");
       const collection = db.collection(collectionName);
       const now = new Date();
       return await collection.insertOne({"body": body, "date": now });
@@ -85,9 +112,22 @@ export async function addObjectAsync(collectionName, body) {
   }
 }
 
-export async function cleanCollection(collectionName) {
+async function addObjectAsyncWithGoogleId(collectionName, body) {
   try {
-      const db = client.db();
+      const db = client.db("StreamersMarketplace");
+      const collection = db.collection(collectionName);
+      const now = new Date();
+      return await collection.insertOne({ "body": body, "date": now });
+  } catch (error) {
+      console.log(error);
+      throw error;
+  }
+}
+
+
+async function cleanCollection(collectionName) {
+  try {
+      const db = client.db("StreamersMarketplace");
       const collection = db.collection(collectionName);
       await collection.deleteMany({});
   } catch (error) {
@@ -97,9 +137,9 @@ export async function cleanCollection(collectionName) {
   }
 }
 
-export async function deleteFileAsync(collectionName, itemId) {
+async function deleteFileAsync(collectionName, itemId) {
   try {
-      const db = client.db();
+      const db = client.db("StreamersMarketplace");
       const collection = db.collection(collectionName);
       let objectId = new mongo.ObjectID(itemId);
 
@@ -111,46 +151,70 @@ export async function deleteFileAsync(collectionName, itemId) {
   }
 }
 
-const tables = {
-  user : {
-    email: userEmail,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    displayName: userDisplayName,
-    phoneNumber: req.body.phoneNumber,
-    walletNumber: req.body.walletNumber,
-    profilePic: req.body.profilePic,
-    description: req.body.description
-  },
-  purchase : {
-    creatorId: creator.body.googleId,
-    creatorName: creator.body.displayName,
-    buyerId: buyerId,
-    buyerEmail: buyerEmail,
-    buyerName: buyer.body.displayName,
-    itemName: item.body.title,
-    itemId: itemId,
-    price: price,
-    quantity: quantity,
-    totalPrice: totalPrice
-  },
-  item: {
-    id: item._id,
-    title: item.body.title,
-    description: item.body.description,
-    image: item.body.image,
-    price: item.body.price,
-    creator: creator.body
-  },
-  creator: {
-    email: userEmail,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    displayName: userDisplayName,
-    phoneNumber: req.body.phoneNumber,
-    walletNumber: req.body.walletNumber,
-    profilePic: req.body.profilePic,
-    description: req.body.description,
-    introVideo: req.body.introVideo
+async function deleteDocumentByGoogleIdAsync(collectionName, id) {
+  try {
+      const db = client.db("StreamersMarketplace");
+      const collection = db.collection(collectionName);
+
+      await collection.deleteMany({ "body.googleId": id });
+  } catch (error) {
+      console.log("failed in delete_async");
+      console.log(error);
+      throw error;
   }
+}
+
+const tables = {
+  users : {
+    email: null,
+    firstName: null,
+    lastName: null,
+    displayName: null,
+    phoneNumber: null,
+    walletNumber: null,
+    profilePic: null,
+    description: null,
+    googleId: null
+  },
+  purchases: {
+    creatorId: null,
+    creatorName: null,
+    buyerId: null,
+    buyerEmail: null,
+    buyerName: null,
+    itemName: null,
+    itemId: null,
+    price: null,
+    totalPrice: null
+  },
+  items: {
+    id: null,
+    title: null,
+    description: null,
+    image: null,
+    price: null,
+    creator: null
+  },
+  creators: {
+    email: null,
+    firstName: null,
+    lastName: null,
+    displayName: null,
+    phoneNumber: null,
+    walletNumber: null,
+    profilePic: null,
+    backgroundPic: null,
+    description: null,
+    introVideo: null
+  }
+}
+
+module.exports = {
+  tables, initMongoConnection, 
+  loadAllObjectsAsync, findObjectByIdAsync, 
+  findObjectByGoogleIdAsync,addOrUpdateObjectAsync,
+  updateObjectAsync, updateUserByGoogleIdAsync,
+  addObjectAsync, addObjectAsyncWithGoogleId,
+  cleanCollection, deleteFileAsync,
+  deleteDocumentByGoogleIdAsync
 }
