@@ -5,6 +5,14 @@
     background-color: #7149C6;
     color: #fff;
     padding: 10px;
+    position: fixed;
+    z-index: 9999; 
+    top: 0;
+    left: 0;
+  }
+
+  body{
+    padding-top: 50px;
   }
   
   .navbar-logo a {
