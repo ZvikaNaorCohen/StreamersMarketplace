@@ -4,18 +4,18 @@ import "./NFTCards.css";
 import pic from "../images/NFTpageImages/doge.jpg";
 let NFTname = "Doge";
 
-function Cards() {
+const Card = ({ title, image }) => {
   return (
     <div className="cards">
       <div className="card__container">
         <div className="card__wrapper">
           <ul className="card__item">
-            <CardItem src={pic} text={NFTname} />
+            <CardItem src={image} text={title} />
           </ul>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Cards;
+export default Card;
