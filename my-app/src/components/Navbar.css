@@ -43,6 +43,20 @@
     cursor: pointer;
     border-radius: 5px;
   }
+
+  .metamask-button {
+    background-color: #7A7CFF;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
   
   .navbar-search {
     display: flex;
@@ -61,5 +75,9 @@
   }
   
   .navbar-button:hover{
+    background-color: #2F0F5D;
+  }
+
+  .metamask-button:hover{
     background-color: #2F0F5D;
   }
