@@ -36,6 +36,7 @@ router.post("/register", async (req, res, next) => {
 router.get("/:creatorId", async (req, res, next) => {
     try {
         const creatorId = req.params.creatorId;
+        console.log(creatorId);
         let creator = await mongoAsyncHandler.findObjectByIdAsync("creators", creatorId); // throws if not found
         let creatorDataToReturn = {
             email: creator.body.email,
@@ -54,6 +55,27 @@ router.get("/:creatorId", async (req, res, next) => {
         next(error)
     }
 });
+
+router.get("/:creatorId/items", async (req, res, next) => {
+    try {
+        const creatorId = req.params.creatorId;
+        let creatorItems = await mongoAsyncHandler.loadAllObjectsByCreatorIdAsync("items", creatorId);
+        let parsedCreatorItem = [];
+        creatorItems.forEach(creatorItem => {
+            parsedCreatorItem.push({
+                title: creatorItem.body.title,
+                description: creatorItem.body.description,
+                image: creatorItem.body.image,
+                price: creatorItem.body.price,
+                creator: creatorItem.body.creator
+            })
+        });
+        res.status(200).send(parsedCreatorItem);
+    } catch (error) {
+        next(error)
+    }
+});
+
 
 
 //internal use only
@@ -76,7 +98,6 @@ router.patch("/update/:creatorId", async (req, res, next) => {
         if (response != null) {
             //creator already exist -> need to update:
             updatedCreator = {
-                ...response.body,
                 ...req.body
             };
 

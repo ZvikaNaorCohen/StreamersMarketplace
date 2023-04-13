@@ -1,6 +1,6 @@
 let express = require("express");
 const mongoAsyncHandler = require("./mongodbClient");
-
+const cors = require('cors');
 
 let app = express();
 
@@ -19,6 +19,14 @@ async function main() {
     // middleware to serve all the needed static files under the dist directory - loaded from the index.html file
     // https://expressjs.com/en/starter/static-files.html
     app.use(express.static("dist"));
+
+    const corsConfig = {
+        origin: true,
+        credentials: true,
+    };
+
+    app.use(cors(corsConfig));
+    app.options("*", cors(corsConfig));
 
     app.get("/keepalive", (req, res) => {
         res.status(200).send("alive!");
