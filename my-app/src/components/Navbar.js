@@ -34,7 +34,7 @@ function Navbar() {
         <li><button className="navbar-button">Home</button></li>
         <li><button className="navbar-button">About</button></li>
         <li><button className="navbar-button">Explore</button></li>
-        <li><button className="navbar-button">Contact Us</button></li>
+        <li><button className="navbar-button">Contact</button></li>
         <li><button className="navbar-button">Login</button></li>
       </ul>
     </nav>
