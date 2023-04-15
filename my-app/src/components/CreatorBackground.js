@@ -1,11 +1,20 @@
 import React from 'react';
 import './CreatorBackground.css';
-import backgroundPic from '../images/office.jpg'
+import { AdvancedImage } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
-function CreatorBackground(id) {
+function CreatorBackground(props) {
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dduc2ulov'
+    }
+  });
+  const backgroundPic = cld.image(props.creatorData.backgroundPic);
+  backgroundPic.resize(fill().width(2000).height(350)); 
   return (
     <div className='backgroundPic'>
-        <img src={backgroundPic} height="350"/>
+        <AdvancedImage cldImg={backgroundPic}/>
     </div>
   );
 }

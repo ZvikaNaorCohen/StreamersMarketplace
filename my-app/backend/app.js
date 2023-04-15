@@ -1,7 +1,6 @@
 let express = require("express");
-let cors = require("cors");
-const mongo_async_handler = require("./mongodbClient");
-
+const mongoAsyncHandler = require("./mongodbClient");
+const cors = require('cors');
 
 let app = express();
 
@@ -21,10 +20,6 @@ async function main() {
     // https://expressjs.com/en/starter/static-files.html
     app.use(express.static("dist"));
 
-    app.get("/keepalive", (req, res) => {
-        res.status(200).send("alive!");
-    });
-
     const corsConfig = {
         origin: true,
         credentials: true,
@@ -33,24 +28,22 @@ async function main() {
     app.use(cors(corsConfig));
     app.options("*", cors(corsConfig));
 
+    app.get("/keepalive", (req, res) => {
+        res.status(200).send("alive!");
+    });
 
-    // const items = require("./ROUTES/items");
-    // const user = require("./ROUTES/user");
-    // const serviceGroup = require("./ROUTES/serviceGroup");
-    // const history = require("./ROUTES/history");
-    // const purchase = require("./ROUTES/purchase");
-    // const rating = require("./ROUTES/rating");
-
+    const user = require("./routes/user");
+    const creator = require("./routes/creator");
+    const item = require("./routes/item");
+    const purchase = require("./routes/purchase");
 
     //#endregion
 
     // Routings
-    // app.use("/items", items);
-    // app.use("/user", user);
-    // app.use("/history", history);
-    // app.use("/serviceGroup", serviceGroup);
-    // app.use("/purchase", purchase);
-    // app.use("/rating", rating);
+    app.use("/creator", creator);
+    app.use("/item", item);
+    app.use("/purchase", purchase);
+    app.use("/user", user);
 
     app.use(express.static('public'));
 
@@ -60,7 +53,11 @@ async function main() {
     });
 
 
-    await mongo_async_handler.init_mongo_connection();
+    await mongoAsyncHandler.initMongoConnection();
+
+    app.listen('5000', () => {
+        console.log("Server listen on port 5000");
+    });
 }
 
 main();
