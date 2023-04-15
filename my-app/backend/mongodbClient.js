@@ -30,11 +30,26 @@ async function loadAllObjectsAsync(collectionName) {
   }
 }
 
+async function loadAllObjectsByCreatorIdAsync(collectionName, creatorId) {
+  try {
+      const db = client.db("StreamersMarketplace");
+      const collection = await db.collection(collectionName);
+      const items = await collection.find({'body.creator': creatorId}).toArray();
+      console.log("finished loading all files ", items.length);
+      return items;
+  } catch (error) {
+      console.log("failed in loadAllObjectsByIdAsync ");
+      console.log(error);
+      throw error;
+  }
+}
+
 async function findObjectByIdAsync(collectionName, id) {
   try {
       const db = client.db("StreamersMarketplace");
       const collection = db.collection(collectionName);
       let objectId = new mongo.ObjectId(id);
+
       return await collection.findOne({ "_id": objectId });
   } catch (error) {
       console.log("failed in findObjectByIdAsync ");
@@ -75,10 +90,9 @@ async function addOrUpdateObjectAsync(collectionName, id, body) {
 async function updateObjectAsync(collectionName, id, nextConfiguration) {
   try {
       const now = new Date();
-      nextConfiguration.date = now;
       const collection = client.db("StreamersMarketplace").collection(collectionName);
       let objectId = new mongo.ObjectId(id);
-      return await collection.updateOne({ "_id": objectId }, { $set: nextConfiguration });
+      return await collection.updateOne({ "_id": objectId }, { $set: { body: nextConfiguration, date: now }});
   } catch (error) {
       console.log("failed in updateObjectAsync ");
       console.log(error);
@@ -211,10 +225,10 @@ const tables = {
 
 module.exports = {
   tables, initMongoConnection, 
-  loadAllObjectsAsync, findObjectByIdAsync, 
-  findObjectByGoogleIdAsync,addOrUpdateObjectAsync,
-  updateObjectAsync, updateUserByGoogleIdAsync,
-  addObjectAsync, addObjectAsyncWithGoogleId,
-  cleanCollection, deleteFileAsync,
-  deleteDocumentByGoogleIdAsync
+  loadAllObjectsAsync, loadAllObjectsByCreatorIdAsync,
+  findObjectByIdAsync, findObjectByGoogleIdAsync,
+  addOrUpdateObjectAsync, updateObjectAsync, 
+  updateUserByGoogleIdAsync, addObjectAsync,
+  addObjectAsyncWithGoogleId, cleanCollection,
+  deleteFileAsync, deleteDocumentByGoogleIdAsync
 }

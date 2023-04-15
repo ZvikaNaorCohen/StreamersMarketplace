@@ -2,26 +2,13 @@ import React from 'react';
 import './CreatorItems.css';
 import CreatorItemCard from './CreatorItemCard';
 
-function CreatorItems(id) {
+function CreatorItems(props) {
+  const creatorItemCards = props.creatorItems.map((item) => (<CreatorItemCard item={item}/>))
   return (
     <>
         <h2>Items on sale</h2>
         <div className="items-grid-container">
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
-        <CreatorItemCard id={id}/>
+        {creatorItemCards}
         </div>
     </>
   );
