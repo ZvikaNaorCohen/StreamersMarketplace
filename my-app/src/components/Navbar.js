@@ -1,6 +1,7 @@
 import './Navbar.css';
 import React, { useState } from 'react';
 import Web3 from 'web3';
+import newLogo from '../images/NewLogo.png'
 
 function Navbar() {
   const web3 = new Web3(window.ethereum);
@@ -20,7 +21,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <a href="/">STREAMERS MARKETPLACE</a>
+        <a href="/"><img src={newLogo} className="AppNewLogo" alt="logo" /></a>
       </div>
       <div className="navbar-search">
         <input type="text" placeholder="Search" className="navbar-search-input" />
