@@ -11,6 +11,13 @@
   z-index: 1;
 }
 
+.AppNewLogo{
+  height: 80px;
+  width: 80px;
+  margin-left: 32px;
+  margin-right: 0px;
+}
+
 
 .navbar-logo a {
   font-weight: bold;
@@ -73,15 +80,16 @@
 .navbar-search {
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  margin-left: 20px;
+  width: 600px;
 }
 
 .navbar-search-input {
   padding: 10px;
-  border-radius: 16px;
+  border-radius: 20px;
   border: none;
   font-size: 16px;
-  width: 400px;
+  width: 600px;
   margin-right: 128px;
 }
 
