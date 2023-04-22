@@ -63,11 +63,14 @@ router.get("/:creatorId/items", async (req, res, next) => {
         let parsedCreatorItem = [];
         creatorItems.forEach(creatorItem => {
             parsedCreatorItem.push({
-                title: creatorItem.body.title,
-                description: creatorItem.body.description,
-                image: creatorItem.body.image,
-                price: creatorItem.body.price,
-                creator: creatorItem.body.creator
+                id: creatorItem['_id'],
+                body: {
+                    title: creatorItem.body.title,
+                    description: creatorItem.body.description,
+                    image: creatorItem.body.image,
+                    price: creatorItem.body.price,
+                    creator: creatorItem.body.creator    
+                }
             })
         });
         res.status(200).send(parsedCreatorItem);
