@@ -1,8 +1,8 @@
-import './Navbar.css';
+import "./Navbar.css";
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
-import Web3 from 'web3';
-import newLogo from '../images/NewLogo.png';
+import Web3 from "web3";
+import newLogo from "../images/NewLogo.png";
 import axios from "axios";
 
 function Navbar() {
@@ -87,23 +87,21 @@ function Navbar() {
         </li>
         {profile ? (
           <div className="navbar-login">
-            <img src={profile.picture} alt="user image" />
-            <h3>User Logged in</h3>
-            <p>Name: {profile.name}</p>
-            <p>Email Address: {profile.email}</p>
-            <br />
-            <br />
-            <button onClick={logOut}>Log out</button>
+            {/* <img src={profile.picture} alt="user image" />  Showing the profile image (doesn't work for now)*/}
+            {/* <h3>User Logged in</h3> */}
+            <p>{profile.name}</p>
+            {/* <p>{profile.email}</p> */}
+            <button className="navbar-logout-button" onClick={logOut}>
+              Sign Out
+            </button>
           </div>
         ) : (
           <button className="navbar-login-button" onClick={() => login()}>
-            Sign in with Google{" "}
+            Sign In with Google{" "}
           </button>
         )}
 
         {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
-
-        {/* <li><button className="navbar-button">Login</button></li> */}
       </ul>
     </nav>
   );
