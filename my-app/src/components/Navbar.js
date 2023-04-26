@@ -8,11 +8,17 @@ import axios from "axios";
 function Navbar() {
   const web3 = new Web3(window.ethereum);
 
-  const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
+  const [profile, setProfile] = useState(null);
 
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => {
+      setUser(codeResponse);
+      localStorage.setItem("user", JSON.stringify(codeResponse));
+    },
     onError: (error) => console.log("Login Failed:", error),
   });
 
@@ -30,15 +36,17 @@ function Navbar() {
         )
         .then((res) => {
           setProfile(res.data);
+          console.log(res.data);
         })
         .catch((err) => console.log(err));
     }
   }, [user]);
 
-  // log out function to log the user out of google and set the profile array to null
   const logOut = () => {
     googleLogout();
     setProfile(null);
+    localStorage.removeItem("user");
+    window.location.reload();
   };
 
   async function metamaskButtonHandler() {
@@ -69,11 +77,6 @@ function Navbar() {
       </div>
       <ul className="navbar-links">
         <li>
-          <button className="metamask-button" onClick={metamaskButtonHandler}>
-            Metamask
-          </button>
-        </li>
-        <li>
           <button className="navbar-button">Home</button>
         </li>
         <li>
@@ -85,12 +88,19 @@ function Navbar() {
         <li>
           <button className="navbar-button">Contact</button>
         </li>
+        <li>
+          <button className="metamask-button" onClick={metamaskButtonHandler}>
+            Metamask
+          </button>
+        </li>
         {profile ? (
           <div className="navbar-login">
-            {/* <img src={profile.picture} alt="user image" />  Showing the profile image (doesn't work for now)*/}
-            {/* <h3>User Logged in</h3> */}
-            <p>{profile.name}</p>
-            {/* <p>{profile.email}</p> */}
+            <img
+              className="navbar-login-picture"
+              src={profile.picture}
+              alt="user"
+            />
+            <li className="navbar-login-name"> {profile.name}</li>
             <button className="navbar-logout-button" onClick={logOut}>
               Sign Out
             </button>
@@ -100,8 +110,6 @@ function Navbar() {
             Sign In with Google{" "}
           </button>
         )}
-
-        {/* <GoogleLogin onSuccess={responseMessage} onError={errorMessage} /> */}
       </ul>
     </nav>
   );

@@ -157,14 +157,21 @@
     background-color: #7a7cff;
     border: none;
     color: white;
-    padding: 5px 5px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 2px 2px;
+    margin: 4px 2px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+.navbar-login-name{
+  margin-left: 10px;
+}
 
   .navbar-login-button {
     background-color: #7a7cff;
@@ -200,5 +207,12 @@
 
   .navbar-logout-button:hover {
     background-color: #2f0f5d;
+  }
+
+  .navbar-login-picture {
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+    display: inline-block;
   }
 }
