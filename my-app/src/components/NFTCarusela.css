@@ -1,0 +1,49 @@
+.nft-carusela {
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 0px;
+  padding: 5px;
+  border: 2px solid #7149c6;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+}
+
+.nft-carusela-slider {
+  margin-top: 10px; /* or any negative value you prefer */
+}
+
+.nft-carusela-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  margin-left: 0px;
+  padding: 16px;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.nft-carusela__arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(167, 6, 167);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.nft-carusela__arrow--next {
+  margin-top: -48px;
+  right: 10px;
+}
+
+.nft-carusela__arrow--prev {
+  margin-top: -48px;
+  left: 10px;
+}
