@@ -3,16 +3,24 @@
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 0px;
+  max-height: 100%;
+  max-width: 100%;
   padding: 5px;
   border: 2px solid #7149c6;
   border-radius: 1rem;
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  overflow: hidden;  
 }
 
 .nft-carusela-slider {
-  margin-top: 10px; /* or any negative value you prefer */
+  margin-top: 0px; /* or any negative value you prefer */
+  cursor: grab;
+  max-height: 100%;
+  max-width: 100%;
+  scroll-snap-type: x mandatory; /* mendatory */
+  scroll-behavior: smooth; /* mendatory */
 }
 
 .nft-carusela-title {
@@ -29,21 +37,33 @@
 
 .nft-carusela__arrow {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: rgb(167, 6, 167);
+  width: 30px;
+  height: 30px;
+  color: #7149c6;
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 1;
-  border-radius: 10px;
+  
 }
 
 .nft-carusela__arrow--next {
   margin-top: -48px;
-  right: 10px;
+  right: -15px;
 }
 
 .nft-carusela__arrow--prev {
   margin-top: -48px;
-  left: 10px;
+  left: 15px;
+}
+
+.nft-carusela-cards{
+    margin-bottom: 30px;
+}
+
+.nft-carusela__arrow:hover{
+    color: #930be2;
+}
+
+.slick-next::before, .slick-prev::before {
+  content: none;
 }

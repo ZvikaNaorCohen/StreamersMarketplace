@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import Web3 from "web3";
 import newLogo from "../images/NewLogo.png";
+import defaultPofilePicture from "../images/DefaultProfile.png";
 import axios from "axios";
 
 function Navbar() {
@@ -98,7 +99,7 @@ function Navbar() {
             <img
               className="navbar-login-picture"
               src={profile.picture}
-              alt="user"
+              alt={defaultPofilePicture}
             />
             <li className="navbar-login-name"> {profile.name}</li>
             <button className="navbar-logout-button" onClick={logOut}>
