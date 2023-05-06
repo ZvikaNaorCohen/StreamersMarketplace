@@ -84,14 +84,16 @@ function Navbar() {
         </li>
         <li>
           <a href="/about">
-          <button className="navbar-button">About</button>
+            <button className="navbar-button">About</button>
           </a>
         </li>
         <li>
           <button className="navbar-button">Explore</button>
         </li>
         <li>
-          <button className="navbar-button">Contact</button>
+          <a href="/contact">
+            <button className="navbar-button">Contact</button>
+          </a>
         </li>
         <li>
           <button className="metamask-button" onClick={metamaskButtonHandler}>
