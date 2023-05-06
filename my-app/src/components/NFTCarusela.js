@@ -11,7 +11,7 @@ const NFTCarusela = ({ title, cards }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -28,7 +28,7 @@ const NFTCarusela = ({ title, cards }) => {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,    
+          slidesToScroll: 1,
           initialSlide: 1,
         },
       },
@@ -59,7 +59,6 @@ const NFTCarusela = ({ title, cards }) => {
     return (
       <div
         className={`${className} nft-carusela__arrow nft-carusela__arrow--prev`}
-        style={{ ...style, display: "block" }}
         onClick={onClick}
       >
         <svg
