@@ -62,6 +62,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .metamask-button {
@@ -76,6 +77,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .navbar-search {
@@ -189,6 +191,7 @@
     margin-left: 2px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
   }
 
   .navbar-login-button:hover {
