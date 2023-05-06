@@ -6,6 +6,7 @@
   height: 50vh; /* adjust as needed */
   padding: 2rem; /* adjust as needed */
   position: relative;
+  
 }
 
 .hero:before {
@@ -46,6 +47,7 @@
   color: #333;
   font-size: 1.5rem;
   padding: 1rem 2rem;
+  margin-bottom: 30px;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;

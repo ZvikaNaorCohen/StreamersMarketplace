@@ -1,10 +1,12 @@
 .navbar {
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: space-between;
   align-items: center;
   background-color: #7149c6;
   color: #fff;
-  padding: 10px;
+  padding: 2px;
   /* position = fixed; */
   width: 100%;
   z-index: 1;
@@ -13,6 +15,7 @@
 .AppNewLogo {
   height: 50px;
   width: 50px;
+  margin-top: 2px;
   margin-left: 32px;
   margin-right: 0px;
 }
@@ -162,16 +165,16 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 4px 2px;
+    margin: 4px 6px;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-.navbar-login-name{
-  margin-left: 10px;
-}
+  .navbar-login-name {
+    margin-left: 10px;
+  }
 
   .navbar-login-button {
     background-color: #7a7cff;
@@ -182,7 +185,8 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin-right: 6px;
+    margin-left: 2px;
     cursor: pointer;
     border-radius: 5px;
   }
