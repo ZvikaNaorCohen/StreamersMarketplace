@@ -21,14 +21,17 @@
 
 .hero-content {
   position: absolute;
-  margin-top: 15px;
+  margin-top: 25px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
   width: 80%;
-  max-width: 800px;
+  max-width: 900px;
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(10, 10, 10, 0.17);
 }
 
 .hero-content h1 {
@@ -47,7 +50,7 @@
   color: #333;
   font-size: 1.5rem;
   padding: 1rem 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -87,11 +90,11 @@
   }
 
   .hero-content h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .hero-content p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     line-height: 2.25rem;
   }
 

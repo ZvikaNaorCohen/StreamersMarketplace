@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import CreatorProfile from "./pages/CreatorProfile";
 import Item from "./pages/Item";
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/creator/:slug" element={<CreatorProfile />} />
         <Route path="/item/:slug" element={<Item />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </>

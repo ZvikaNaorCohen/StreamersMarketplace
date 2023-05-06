@@ -78,10 +78,14 @@ function Navbar() {
       </div>
       <ul className="navbar-links">
         <li>
-          <button className="navbar-button">Home</button>
+          <a href="/">
+            <button className="navbar-button">Home</button>
+          </a>
         </li>
         <li>
+          <a href="/about">
           <button className="navbar-button">About</button>
+          </a>
         </li>
         <li>
           <button className="navbar-button">Explore</button>
