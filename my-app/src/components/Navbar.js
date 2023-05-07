@@ -104,7 +104,12 @@ function Navbar() {
           <div className="navbar-login">
             <img
               className="navbar-login-picture"
-              src={profile.picture}
+              src={
+                profile.picture ===
+                "https://lh3.googleusercontent.com/a/AGNmyxbkT0b6n64is1ACTDopCDrGuYXQm-Dh-vo_R9Za=s96-c"
+                  ? defaultPofilePicture
+                  : profile.picture
+              }
               alt={defaultPofilePicture}
             />
             <li className="navbar-login-name"> {profile.name}</li>
