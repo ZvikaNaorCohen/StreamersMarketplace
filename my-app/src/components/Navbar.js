@@ -78,16 +78,22 @@ function Navbar() {
       </div>
       <ul className="navbar-links">
         <li>
-          <button className="navbar-button">Home</button>
+          <a href="/">
+            <button className="navbar-button">Home</button>
+          </a>
         </li>
         <li>
-          <button className="navbar-button">About</button>
+          <a href="/about">
+            <button className="navbar-button">About</button>
+          </a>
         </li>
         <li>
           <button className="navbar-button">Explore</button>
         </li>
         <li>
-          <button className="navbar-button">Contact</button>
+          <a href="/contact">
+            <button className="navbar-button">Contact</button>
+          </a>
         </li>
         <li>
           <button className="metamask-button" onClick={metamaskButtonHandler}>
@@ -98,7 +104,12 @@ function Navbar() {
           <div className="navbar-login">
             <img
               className="navbar-login-picture"
-              src={profile.picture}
+              src={
+                profile.picture ===
+                "https://lh3.googleusercontent.com/a/AGNmyxbkT0b6n64is1ACTDopCDrGuYXQm-Dh-vo_R9Za=s96-c"
+                  ? defaultPofilePicture
+                  : profile.picture
+              }
               alt={defaultPofilePicture}
             />
             <li className="navbar-login-name"> {profile.name}</li>

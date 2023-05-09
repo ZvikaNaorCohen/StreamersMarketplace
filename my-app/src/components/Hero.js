@@ -5,12 +5,15 @@ const Hero = () => {
   return (
     <div className="hero">
       <div className="hero-content">
-        <h1>Welcome to My Site</h1>
+        <h1>Welcome to Streamers Marketplace</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut imperdiet elit eu elit lacinia ultricies. Etiam
-          rhoncus, est at suscipit aliquam, turpis lorem gravida eros, in hendrerit lectus ante sit amet dolor.
+          Unlock the world of exclusive video content with our unique
+          marketplace for streamers and viewers. Join us now and experience the future of
+          online content!
         </p>
-        <button>Learn More</button>
+        <a href="/about">
+          <button>Learn More</button>
+        </a>
       </div>
     </div>
   );
