@@ -7,7 +7,7 @@ import About from "./pages/About";
 import CreatorProfile from "./pages/CreatorProfile";
 import Item from "./pages/Item";
 import Contact from "./pages/Contact";
-import CreatorStream from "./components/CreatorStream"
+import CreatorStream from "./pages/CreatorStream"
 
 function App() {
   return (
@@ -16,10 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/creator/:slug" element={<CreatorProfile />} />
+        <Route path="/stream/:slug" element={<CreatorStream />} />
         <Route path="/item/:slug" element={<Item />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/stream" element={<CreatorStream/>} />
       </Routes>
       <Footer />
     </>
