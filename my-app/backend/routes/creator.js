@@ -79,6 +79,33 @@ router.get("/:creatorId/items", async (req, res, next) => {
     }
 });
 
+router.get("/", async (req, res, next) => {
+    try {
+        let creators = await mongoAsyncHandler.loadAllObjectsAsync("creators");
+        let parsedCreators = [];
+        creators.forEach(creator => {
+            parsedCreators.push({
+                id: creator['_id'],
+                body: {
+                    email: creator.body.email,
+                    firstName: creator.body.firstName,
+                    lastName: creator.body.lastName,
+                    displayName: creator.body.displayName,
+                    phoneNumber: creator.body.phoneNumber,
+                    walletNumber: creator.body.walletNumber,
+                    backgroundPic: creator.body.backgroundPic,
+                    profilePic: creator.body.profilePic,
+                    description: creator.body.description,
+                    introVideo: creator.body.introVideo
+                }
+            })
+        });
+        res.status(200).send(parsedCreators);
+    } catch (error) {
+        next(error)
+    }
+});
+
 
 
 //internal use only

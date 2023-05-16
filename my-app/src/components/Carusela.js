@@ -3,10 +3,11 @@ import Slider from "react-slick";
 import Card from "./Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Carusela.css"
+import "./Carusela.css";
 
 
-const Carusela = ({ title, cards }) => {
+
+const Carusela = (props) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -35,6 +36,13 @@ const Carusela = ({ title, cards }) => {
       },
     ],
   };
+
+  const creatorItemCards = props.creators.map((creator, index) => (
+    <div key={index}>
+      <Card creator={creator}/>
+    </div>
+  ))
+
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -66,16 +74,14 @@ const Carusela = ({ title, cards }) => {
     );
   }
 
+
+
   return (
     <div className="carusela">
-      <h2 className="carusela__title">{title}</h2>
+      <h2 className="carusela__title">{props.title}</h2>
       <div className="carusela__slider">
         <Slider {...settings}>
-          {cards.map((card, index) => (
-            <div key={index}>
-              <Card {...card} />
-            </div>
-          ))}
+          {creatorItemCards}
         </Slider>
       </div>
     </div>
