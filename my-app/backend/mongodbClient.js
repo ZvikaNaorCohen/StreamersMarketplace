@@ -44,6 +44,24 @@ async function loadAllObjectsByCreatorIdAsync(collectionName, creatorId) {
   }
 }
 
+async function loadStreamByCreatorIdAsync(collectionName, creatorId) {
+  try {
+    const db = client.db("StreamersMarketplace");
+    const collection = await db.collection(collectionName);
+    const items = await collection.find({ "body.creatorId": creatorId }).toArray();
+
+    console.log("finished loading the files");
+
+    return items; // Return an array of items instead of a single item
+  } catch (error) {
+    console.log("failed in loadStreamByCreatorIdAsync");
+    console.log(error);
+    throw error;
+  }
+}
+
+
+
 async function findObjectByIdAsync(collectionName, id) {
   try {
       const db = client.db("StreamersMarketplace");
@@ -220,6 +238,10 @@ const tables = {
     backgroundPic: null,
     description: null,
     introVideo: null
+  },
+  stream: {
+    creatorId: null,
+    videoLink: null
   }
 }
 
@@ -230,5 +252,5 @@ module.exports = {
   addOrUpdateObjectAsync, updateObjectAsync, 
   updateUserByGoogleIdAsync, addObjectAsync,
   addObjectAsyncWithGoogleId, cleanCollection,
-  deleteFileAsync, deleteDocumentByGoogleIdAsync
+  deleteFileAsync, deleteDocumentByGoogleIdAsync, loadStreamByCreatorIdAsync
 }
