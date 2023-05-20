@@ -107,7 +107,6 @@ router.get("/", async (req, res, next) => {
 });
 
 
-
 //internal use only
 router.delete("/delete/:creatorId", async (req, res, next) => {
     const itemId = req.params.creatorId;

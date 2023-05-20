@@ -1,12 +1,14 @@
 import React from 'react';
-import './CreatorStream.css';
+import './StreamPage.css';
 import ChatBox from './ChatBox';
 
-const CreatorStream = () => {
+// instead of link, need to do props.creatorData.videoLink
+
+const StreamPage = (props) => {
   return (
     <div className="creator-stream-container">
       <div className="video-container">
-        <iframe src="https://player.vimeo.com/video/336012190"></iframe>
+        <iframe src={props.creatorData.videoLink}></iframe>
       </div>
       <div className="chat-container">
         <ChatBox />
@@ -15,4 +17,4 @@ const CreatorStream = () => {
   );
 }
 
-export default CreatorStream;
+export default StreamPage;
