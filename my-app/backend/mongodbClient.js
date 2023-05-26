@@ -44,6 +44,7 @@ async function loadAllObjectsByCreatorIdAsync(collectionName, creatorId) {
   }
 }
 
+/* 
 async function loadStreamByCreatorIdAsync(collectionName, creatorId) {
   try {
     const db = client.db("StreamersMarketplace");
@@ -59,7 +60,7 @@ async function loadStreamByCreatorIdAsync(collectionName, creatorId) {
     throw error;
   }
 }
-
+*/
 
 
 async function findObjectByIdAsync(collectionName, id) {
@@ -252,5 +253,5 @@ module.exports = {
   addOrUpdateObjectAsync, updateObjectAsync, 
   updateUserByGoogleIdAsync, addObjectAsync,
   addObjectAsyncWithGoogleId, cleanCollection,
-  deleteFileAsync, deleteDocumentByGoogleIdAsync, loadStreamByCreatorIdAsync
+  deleteFileAsync, deleteDocumentByGoogleIdAsync, 
 }

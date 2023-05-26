@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CreatorVideo from "./components/CreatorVideo";
+
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import CreatorProfile from "./pages/CreatorProfile";
 import Item from "./pages/Item";
 import Contact from "./pages/Contact";
-import CreatorStream from "./pages/CreatorStream"
+import CreatorStream from "./pages/CreatorStream";
+import CreatorVideos from "./pages/CreatorVideos";
+
 
 function App() {
   return (
@@ -17,6 +21,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/creator/:slug" element={<CreatorProfile />} />
         <Route path="/stream/:slug" element={<CreatorStream />} />
+        <Route path="/video/:slug" element={<CreatorVideo />} /> {/* Updated route */}
+        <Route path="/video/:slug/videos" element={<CreatorVideos />} /> {/* New route */}
         <Route path="/item/:slug" element={<Item />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
