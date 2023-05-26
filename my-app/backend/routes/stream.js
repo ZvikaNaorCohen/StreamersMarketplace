@@ -6,12 +6,12 @@ router.get("/:creatorId", async (req, res, next) => {
     try {
         const creatorId = req.params.creatorId;
         console.log(creatorId);
-        let creators = await mongoAsyncHandler.loadStreamByCreatorIdAsync("stream", creatorId); // returns an array of items
+        let creators = await mongoAsyncHandler.loadAllObjectsByCreatorIdAsync("stream", creatorId); // returns an array of items
         
         if (creators && creators.length > 0) {
             let creator = creators[0]; // Get the first item in the array
             let creatorDataToReturn = {
-                creatorId: creator.body.creatorId,
+                creatorId: creator.body.creator,
                 videoLink: creator.body.videoLink
             }
             res.status(200).send(creatorDataToReturn);
