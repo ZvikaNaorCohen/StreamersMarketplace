@@ -36,7 +36,7 @@ const Container = styled.div`
   flex-direction: row;
 `;
 
-const NFTHeader = ({ title, image, creatorName, NFTDescription, Price }) => {
+const NFTHeader = ({ title, image, creator, creatorID, NFTDescription, Price }) => {
   return (
     <Container>
       <Left>
@@ -45,7 +45,8 @@ const NFTHeader = ({ title, image, creatorName, NFTDescription, Price }) => {
       <Right>
         <Details
           NFTName={title}
-          creatorName={creatorName}
+          creator={creator}
+          creatorID={creatorID}
           NFTDescription={NFTDescription}
         />
         <Pricing Price={Price} />
