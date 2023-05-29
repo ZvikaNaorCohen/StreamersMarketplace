@@ -1,5 +1,5 @@
 import React from 'react';
-import './CreatorItemCard.css';
+import './CreatorVideoCard.css';
 import { useNavigate } from 'react-router-dom';
 
 function CreatorVideoCard(props) {
