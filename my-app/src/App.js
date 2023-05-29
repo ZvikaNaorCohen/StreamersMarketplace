@@ -9,6 +9,7 @@ import Item from "./pages/Item";
 import Contact from "./pages/Contact";
 import CreatorStream from "./pages/CreatorStream";
 import CreatorVideo from "./pages/CreatorVideo";
+import CreatorAllVideos from "./pages/CreatorAllVideos";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/creator/:slug" element={<CreatorProfile />} />
+        <Route path="/creator/:slug/videos" element={<CreatorAllVideos />} />
         <Route path="/stream/:slug" element={<CreatorStream />} />
         <Route path="/video/:slug" element={<CreatorVideo />} />
         <Route path="/item/:slug" element={<Item />} />
