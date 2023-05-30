@@ -7,14 +7,14 @@ import Pricing from "./NFTPrice";
 const Left = styled.div`
   flex: 2;
   display: flex;
-  animation: animate 2s infinite ease alternate;
   max-width: 600px;
+  /* animation: animate 2s infinite ease alternate;
 
   @keyframes animate {
     to {
       transform: translateY(5px);
     }
-  }
+  } */
 `;
 
 const Right = styled.div`

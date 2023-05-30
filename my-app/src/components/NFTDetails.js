@@ -28,10 +28,6 @@ const NFTpageDetails = ({ NFTName, creator, creatorID, NFTDescription }) => {
             {creator.displayName}{" "}
           </Link>
         </h2>
-        <Link to={`/creator/${creatorID}`}>
-          {/* Need to fix that or delete that */}
-          <AdvancedImage cldImg={itemPic} className="nft-profile-img" />
-        </Link>
       </div>
       <Stats />
       <div className="nft-description">
