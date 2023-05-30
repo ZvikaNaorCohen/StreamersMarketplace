@@ -36,7 +36,8 @@ async function main() {
     const creator = require("./routes/creator");
     const item = require("./routes/item");
     const purchase = require("./routes/purchase");
-    const stream = require("./routes/stream")
+    const stream = require("./routes/stream");
+    const video = require("./routes/video");
 
     //#endregion
 
@@ -46,6 +47,7 @@ async function main() {
     app.use("/purchase", purchase);
     app.use("/user", user);
     app.use("/stream", stream);
+    app.use("/video", video);
 
     app.use(express.static('public'));
 
