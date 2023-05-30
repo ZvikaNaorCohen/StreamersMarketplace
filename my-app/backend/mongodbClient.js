@@ -243,6 +243,11 @@ const tables = {
   stream: {
     creatorId: null,
     videoLink: null
+  },
+  videos:{
+    creator: null,
+    videoLink: null,
+    title: null
   }
 }
 

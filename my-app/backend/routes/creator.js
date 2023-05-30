@@ -79,6 +79,28 @@ router.get("/:creatorId/items", async (req, res, next) => {
     }
 });
 
+router.get("/:creatorId/videos", async (req, res, next) => {
+    console.log("In creatorId/videos");
+    try {
+        const creatorId = req.params.creatorId;
+        let creatorVideos = await mongoAsyncHandler.loadAllObjectsByCreatorIdAsync("videos", creatorId);
+        let parsedCreatorVideo = [];
+        creatorVideos.forEach(creatorItem => {
+            parsedCreatorVideo.push({
+                id: creatorItem['_id'],
+                body: {
+                    creator: creatorItem.body.creator,
+                    title: creatorItem.body.title,
+                    videoLink: creatorItem.body.videoLink   
+                }
+            })
+        });
+        res.status(200).send(parsedCreatorVideo);
+    } catch (error) {
+        next(error)
+    }
+});
+
 router.get("/", async (req, res, next) => {
     try {
         let creators = await mongoAsyncHandler.loadAllObjectsAsync("creators");
