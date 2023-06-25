@@ -11,7 +11,7 @@
   box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
   -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-  overflow: hidden;  
+  overflow: hidden;
 }
 
 .nft-carusela-slider {
@@ -21,6 +21,19 @@
   max-width: 100%;
   scroll-snap-type: x mandatory; /* mendatory */
   scroll-behavior: smooth; /* mendatory */
+
+}
+
+.nft-carusela-cards {
+  margin-bottom: 50px;
+  /* background-color: green; */
+  gap: 30px;
+  align-items: center;
+  flex-direction: row;
+  padding: 2rem;
+  margin: 1rem;
+  padding-left: 40px;
+  margin-left: -6px;
 }
 
 .nft-carusela-title {
@@ -43,7 +56,6 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 1;
-  
 }
 
 .nft-carusela__arrow--next {
@@ -56,14 +68,21 @@
   left: 15px;
 }
 
-.nft-carusela-cards{
-    margin-bottom: 30px;
+.nft-carusela__arrow:hover {
+  color: #930be2;
 }
 
-.nft-carusela__arrow:hover{
-    color: #930be2;
-}
-
-.slick-next::before, .slick-prev::before {
+.slick-next::before,
+.slick-prev::before {
   content: none;
+}
+
+.nft-items{
+   display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
 }

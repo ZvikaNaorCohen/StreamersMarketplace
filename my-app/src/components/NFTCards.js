@@ -1,8 +1,6 @@
 import React from "react";
 import CardItem from "./NFTCardItem";
 import "./NFTCards.css";
-import pic from "../images/NFTpageImages/doge.jpg";
-let NFTname = "Doge";
 
 const Card = ({ title, image }) => {
   return (

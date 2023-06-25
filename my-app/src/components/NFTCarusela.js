@@ -1,16 +1,16 @@
 import React from "react";
 import Slider from "react-slick";
-import Card from "./NFTCards";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./NFTCarusela.css";
+import CreatorItemCard from "./CreatorItemCard";
 
 const NFTCarusela = ({ title, cards }) => {
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -71,21 +71,43 @@ const NFTCarusela = ({ title, cards }) => {
       </div>
     );
   }
+  
+  const creatorItemCards = cards.map((item) => (
+    <CreatorItemCard item={item} />
+  ));
 
   return (
     <div className="nft-carusela">
       <h2 className="nft-carusela-title">{title}</h2>
-      <div className="nft-carusela-slider">
+      <div className="nft-items">{creatorItemCards}</div>
+
+      {/* <div className="nft-carusela-slider">
         <Slider {...settings}>
-          {cards.map((card, index) => (
-            <div key={index} className="nft-carusela-cards">
-              <Card {...card} />
+          {cards.map((item) => (
+            <div key={item.id} className="nft-carusela-cards">
+              <CreatorItemCard item={item} />
             </div>
           ))}
         </Slider>
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default NFTCarusela;
+
+
+
+    // return (
+    //   <div className="nft-carusela">
+    //     <h2 className="nft-carusela-title">{title}</h2>
+    //     <div className="nft-carusela-slider">
+    // <Slider {...settings}>
+    //   {cards.map((card, index) => (
+    //     <div key={index} className="nft-carusela-cards">
+    //       <Card {...card} />
+    //     </div>
+    //   ))}
+    // </Slider>
+    //     </div>
+    //   </div>
