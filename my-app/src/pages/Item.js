@@ -52,7 +52,7 @@ function Item() {
     };
 
     fetchData();
-  });
+  }, [creatorItem]);
 
   if (!creatorItem || !creatorData || !creatorItems) {
     return <div>Loading...</div>;
@@ -76,7 +76,9 @@ function Item() {
         creator={creatorData}
         creatorID={creatorItem.creator}
         NFTDescription={creatorItem.description}
-        Price={creatorItem.price}
+        price={creatorItem.price}
+        id={slug}
+        item={creatorItem}
       />
       <NFTCarusela
         title={`More from ${creatorData.displayName}`}

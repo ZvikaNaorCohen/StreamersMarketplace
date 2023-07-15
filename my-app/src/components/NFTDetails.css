@@ -22,7 +22,7 @@
   display: flex;
   flex-flow: column;
   align-items: left;
-  text-align: left;
+  text-align: center;
   color: #7149c6;
   margin: 15px;
 }

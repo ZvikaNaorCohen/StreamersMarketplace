@@ -72,42 +72,26 @@ const NFTCarusela = ({ title, cards }) => {
     );
   }
   
-  const creatorItemCards = cards.map((item) => (
-    <CreatorItemCard item={item} />
-  ));
+  let creatorItemCards;
+  if (cards.length > 5)
+  {
+    creatorItemCards = cards.splice(5).filter(item => item.body.ownedBy == null).map((item) => (
+      <CreatorItemCard item={item} />
+    ));
+  }
+  else 
+  {
+    creatorItemCards = cards.filter(item => item.body.ownedBy == null).map((item) => (
+      <CreatorItemCard item={item} />
+    ));
+  }
 
   return (
     <div className="nft-carusela">
       <h2 className="nft-carusela-title">{title}</h2>
       <div className="nft-items">{creatorItemCards}</div>
-
-      {/* <div className="nft-carusela-slider">
-        <Slider {...settings}>
-          {cards.map((item) => (
-            <div key={item.id} className="nft-carusela-cards">
-              <CreatorItemCard item={item} />
-            </div>
-          ))}
-        </Slider>
-      </div> */}
     </div>
   );
 };
 
 export default NFTCarusela;
-
-
-
-    // return (
-    //   <div className="nft-carusela">
-    //     <h2 className="nft-carusela-title">{title}</h2>
-    //     <div className="nft-carusela-slider">
-    // <Slider {...settings}>
-    //   {cards.map((card, index) => (
-    //     <div key={index} className="nft-carusela-cards">
-    //       <Card {...card} />
-    //     </div>
-    //   ))}
-    // </Slider>
-    //     </div>
-    //   </div>

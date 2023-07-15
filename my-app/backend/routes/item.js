@@ -14,7 +14,8 @@ router.get("/:itemId", async (req, res, next) => {
             description: item.body.description,
             image: item.body.image,
             price: item.body.price,
-            creator: item.body.creator
+            creator: item.body.creator,
+            ownedBy: item.body.ownedBy
         };
         res.status(200).send(itemToReturn);
     } catch (error) {
@@ -30,7 +31,8 @@ router.post("/add", async (req, res, next) => {
             description: req.body.description,
             image: req.body.image,
             price: req.body.price,
-            creator: req.body.creator
+            creator: req.body.creator,
+            ownedBy: req.body.ownedBy
         }
         let items = await mongoAsyncHandler.loadAllObjectsAsync("items");
         items.forEach(item => {
@@ -61,14 +63,16 @@ router.patch("/update/:itemId", async (req, res, next) => {
             description: req.body.description || response.description,
             image: req.body.image || response.body.image,
             price: req.body.price || response.body.price,
-            creator: req.body.creator || response.body.creator
+            creator: req.body.creator || response.body.creator,
+            ownedBy: req.body.ownedBy || response.body.ownedBy
         }
         const exists = await isItemAlreadyExistForCreator(updatedItem.title, updatedItem.creator);
         if (exists) {
             //check if any other field  not updated:
             if (req.body.description == response.body.description &&
                 req.body.image == response.body.image &&
-                req.body.price == response.body.price) {
+                req.body.price == response.body.price &&
+                req.body.ownedBy == response.body.ownedBy) {
                 const error = new Error("The item already exists for this creator");
                 error.code = 500;
                 throw error;
@@ -109,7 +113,6 @@ async function isItemAlreadyExistForCreator(title, creator) {
         }
     });
     return false;
-
 }
 
 module.exports = router;

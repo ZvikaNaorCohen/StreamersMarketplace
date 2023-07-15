@@ -77,7 +77,6 @@ router.patch("/update/:userId", async (req, res, next) => {
                 ...response.body,
                 ...req.body
             };
-
         }
         else {
             res.status(500).send("User does not exist");

@@ -226,7 +226,8 @@ const tables = {
     description: null,
     image: null,
     price: null,
-    creator: null
+    creator: null,
+    ownedBy: null
   },
   creators: {
     email: null,

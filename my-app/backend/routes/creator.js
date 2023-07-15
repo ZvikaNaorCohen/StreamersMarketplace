@@ -69,7 +69,8 @@ router.get("/:creatorId/items", async (req, res, next) => {
                     description: creatorItem.body.description,
                     image: creatorItem.body.image,
                     price: creatorItem.body.price,
-                    creator: creatorItem.body.creator    
+                    creator: creatorItem.body.creator, 
+                    ownedBy: creatorItem.body.ownedBy   
                 }
             })
         });
