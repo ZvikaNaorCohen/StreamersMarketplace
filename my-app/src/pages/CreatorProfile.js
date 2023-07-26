@@ -7,6 +7,7 @@ import axios from 'axios';
 function CreatorProfile() {
   let { slug } = useParams();
   const [creatorData, setCreatorData] = useState(null);
+  const [creatorID, setCreatorID] = useState(null);
   const [creatorItems, setCreatorItems] = useState(null);
 
   useEffect(() => {
@@ -14,6 +15,7 @@ function CreatorProfile() {
       try {
         const creatorRes = await axios.get(`http://localhost:5000/creator/${slug}`);
         setCreatorData(creatorRes.data);
+        setCreatorID(slug);
       } catch (error) {
         console.error(error);
       }
@@ -35,7 +37,7 @@ function CreatorProfile() {
 
   return (
     <>
-      <CreatorHeader creatorData={creatorData} />
+      <CreatorHeader creatorData={creatorData} creatorID={creatorID}/>
       <CreatorItems creatorItems={creatorItems} />
     </>
   );

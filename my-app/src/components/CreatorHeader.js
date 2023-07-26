@@ -7,7 +7,7 @@ function CreatorHeader(props) {
   return (
     <>
       <CreatorBackground creatorData={props.creatorData}/>
-      <CreatorBio creatorData={props.creatorData}/>
+      <CreatorBio creatorData={props.creatorData} creatorID={props.creatorID}/>
     </>
   );
 }
