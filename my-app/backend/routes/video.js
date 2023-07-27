@@ -12,7 +12,8 @@ router.get("/:itemId", async (req, res, next) => {
             id: item._id,
             creator: item.body.creator,
             title: item.body.title,
-            videoLink: item.body.videoLink
+            videoLink: item.body.videoLink,
+            thumbnailURL: item.body.thumbnailURL
         };
         res.status(200).send(itemToReturn);
     } catch (error) {

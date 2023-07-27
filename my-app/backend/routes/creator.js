@@ -92,7 +92,8 @@ router.get("/:creatorId/videos", async (req, res, next) => {
                 body: {
                     creator: creatorItem.body.creator,
                     title: creatorItem.body.title,
-                    videoLink: creatorItem.body.videoLink   
+                    videoLink: creatorItem.body.videoLink,
+                    thumbnailURL: creatorItem.body.thumbnailURL
                 }
             })
         });

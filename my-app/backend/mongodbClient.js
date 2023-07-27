@@ -248,7 +248,8 @@ const tables = {
   videos:{
     creator: null,
     videoLink: null,
-    title: null
+    title: null,
+    thumbnailURL: null
   }
 }
 

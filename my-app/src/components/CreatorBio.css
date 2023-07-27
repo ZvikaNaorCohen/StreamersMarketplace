@@ -58,3 +58,19 @@
   .creator-video {
     margin-right: 18rem;
   }
+
+  .stream-button, .videos-button{
+    background-color: #7A7CFF;
+  color: white;
+  font-weight: 500;
+  width: 200px;
+  padding: 10px;
+  border: none;
+  margin: 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+}
