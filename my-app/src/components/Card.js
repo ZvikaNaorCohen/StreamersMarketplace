@@ -27,9 +27,10 @@ const Card = (props) => {
       <div className="card__image">
         <AdvancedImage cldImg={profilePic}/>
       </div>
-      {/* <img src={image} alt={props.creator.body.displayName} className="card__image" /> */}
-      <h3 className="card__title">{props.creator.body.displayName}</h3>
-      <p className="card__description">{props.creator.body.description}</p>
+      <div className="details">
+        <h3 className="card__title">{props.creator.body.displayName}</h3>
+        <p className="card__description">{props.creator.body.description}</p>
+      </div>
     </div>
   );
 };

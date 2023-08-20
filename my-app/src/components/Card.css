@@ -5,3 +5,15 @@
     object-position: center;
   }
   
+.details {
+  background-color: white;
+  opacity: 0.8;
+}
+
+p {
+  margin-left: 5px;
+}
+
+h3 {
+  margin-left: 5px;
+}
