@@ -1,12 +1,12 @@
 .hero {
-  background-image: url("https://picsum.photos/1920/1080");
+  background-image: url("https://i.imgur.com/DAfi6dA.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh; /* adjust as needed */
-  padding: 2rem; /* adjust as needed */
+  height: 50vh;
+  padding: 2rem;
   position: relative;
-  
+  margin-bottom: 20px;
 }
 
 .hero:before {

@@ -34,6 +34,7 @@ const Right = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 
 const NFTHeader = ({ title, image, creator, creatorID, NFTDescription, price, id, item }) => {
