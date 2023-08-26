@@ -21,7 +21,7 @@ function Navbar() {
     onSuccess: (codeResponse) => {
       setUser(codeResponse);
       localStorage.setItem("user", JSON.stringify(codeResponse));
-      loggedInID = codeResponse.id; aa
+      loggedInID = codeResponse.id;
     },
     onError: (error) => console.log("Login Failed:", error),
   });
