@@ -32,11 +32,10 @@ function CreatorVideo() {
   if (!creatorData || !creatorVideos) {
     return <div>You have no access to view this page. </div>;
   }
-
+// <CreatorVideos creatorVideos={creatorVideos} />
   return (
     <>
       <SingleVideoPage creatorData={creatorData} />
-      <CreatorVideos creatorVideos={creatorVideos} />
     </>
   );
 }
