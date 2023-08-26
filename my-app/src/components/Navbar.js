@@ -20,6 +20,7 @@ function Navbar() {
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       setUser(codeResponse);
+      localStorage.setItem("user", JSON.stringify(codeResponse));
       loggedInID = codeResponse.id;
     },
     onError: (error) => console.log("Login Failed:", error),
