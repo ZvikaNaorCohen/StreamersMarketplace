@@ -5,6 +5,8 @@ import Web3 from "web3";
 import newLogo from "../images/NewLogo.png";
 import defaultPofilePicture from "../images/DefaultProfile.png";
 import axios from "axios";
+import { setLoggedInUser, getLoggedInUser } from './globals';
+var loggedInID = 0;
 
 function Navbar() {
   const web3 = new Web3(window.ethereum);
@@ -18,7 +20,7 @@ function Navbar() {
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       setUser(codeResponse);
-      localStorage.setItem("user", JSON.stringify(codeResponse));
+      loggedInID = codeResponse.id;
     },
     onError: (error) => console.log("Login Failed:", error),
   });
@@ -38,6 +40,10 @@ function Navbar() {
         .then((res) => {
           setProfile(res.data);
           console.log(res.data);
+          console.log("Setting the logged in user id");
+          setLoggedInUser(res.data.id);
+          // loggedInID = res.data.id;
+          // console.log("Google ID:", loggedInID);
         })
         .catch((err) => console.log(err));
     }
