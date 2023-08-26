@@ -18,26 +18,24 @@ const title = props.creatorData.title;
 console.log('LoggedInUser:', loggedInUser);
 
 
-// if (loggedInUser === "113220831741527471440") { 
+if (loggedInUser === "113220831741527471440" ||
+    loggedInUser === "105133534616865924894" || 
+    loggedInUser === "115857857235822341241" || 
+    loggedInUser === "101506400040155830899") { 
   return (
     <div className="creator-video-container">
       <div className="title">
       <h2>{title}</h2>
     </div>
       <AdvancedVideo cldVid={myVideo} controls autoPlay />
-      {/* <iframe
-        src={myVideo}
-        className="video-frame"
-        title="Embedded Video"
-        allowFullScreen
-      ></iframe> */}
     </div>
   );
-// } else {
-  // return(
-  //   <h3>You are not allowed to access this page!</h3>
-  // );
-// }
+}
+else{
+  return(
+    <h3>You are not allowed to view this page!</h3>
+  );
+}
 }
 
 export default SingleVideoPage;
