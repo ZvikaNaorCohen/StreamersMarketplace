@@ -42,7 +42,6 @@ function Navbar() {
           console.log(res.data);
           console.log("Setting the logged in user id to: ");
           setLoggedInUser(res.data.id);
-          // loggedInID = res.data.id;
           console.log("Google ID:", res.data.id);
         })
         .catch((err) => console.log(err));

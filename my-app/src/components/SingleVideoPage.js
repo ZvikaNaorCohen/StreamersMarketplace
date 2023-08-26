@@ -18,7 +18,10 @@ const title = props.creatorData.title;
 console.log('LoggedInUser:', loggedInUser);
 
 
-if (loggedInUser === "113220831741527471440") { 
+if (loggedInUser === "113220831741527471440" ||
+    loggedInUser === "105133534616865924894" || 
+    loggedInUser === "115857857235822341241" || 
+    loggedInUser === "101506400040155830899") { 
   return (
     <div className="creator-video-container">
       <div className="title">

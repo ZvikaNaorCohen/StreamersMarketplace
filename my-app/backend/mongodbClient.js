@@ -197,6 +197,21 @@ async function deleteDocumentByGoogleIdAsync(collectionName, id) {
   }
 }
 
+async function isUserAllowedForCreator(creatorID, loggedInUser) {
+  try {
+    const db = client.db("StreamersMarketplace");
+    const collection = db.collection("allowedUserForCreator");
+    
+    const result = await collection.findOne({ creatorID, allowedGoogleID: loggedInUser });
+    
+    return !!result; // Return true if the user is allowed, otherwise false
+  } catch (error) {
+    console.log("failed in isUserAllowedForCreator ");
+    console.log(error);
+    throw error;
+  }
+}
+
 const tables = {
   users : {
     email: null,
@@ -250,6 +265,10 @@ const tables = {
     videoLink: null,
     title: null,
     thumbnailURL: null
+  },
+  allowedUserForCreator:{
+    creatorID: null,
+    allowedGoogleID: null
   }
 }
 
@@ -260,5 +279,5 @@ module.exports = {
   addOrUpdateObjectAsync, updateObjectAsync, 
   updateUserByGoogleIdAsync, addObjectAsync,
   addObjectAsyncWithGoogleId, cleanCollection,
-  deleteFileAsync, deleteDocumentByGoogleIdAsync
+  deleteFileAsync, deleteDocumentByGoogleIdAsync, isUserAllowedForCreator
 }
