@@ -21,7 +21,9 @@ console.log('LoggedInUser:', loggedInUser);
 if (loggedInUser === "113220831741527471440" ||
     loggedInUser === "105133534616865924894" || 
     loggedInUser === "115857857235822341241" || 
-    loggedInUser === "101506400040155830899") { 
+    loggedInUser === "101506400040155830899" ||
+    loggedInUser === "116458516760319176266" || 
+    loggedInUser === "103939648540764412957") { 
   return (
     <div className="creator-video-container">
       <div className="title">
